@@ -1,8 +1,9 @@
-import { useContext } from 'react';
+import { useContext } from "react";
+import { Link } from 'react-router-dom';
 
-import Card from '../ui/Card';
-import classes from './MovieItem.module.css';
-import FavoritesContext from '../../store/favorites-context';
+import Card from "../ui/Card";
+import classes from "./MovieItem.module.css";
+import FavoritesContext from "../../store/favorites-context";
 
 function MovieItem(props) {
   const favoritesCtx = useContext(FavoritesContext);
@@ -23,6 +24,8 @@ function MovieItem(props) {
     }
   }
 
+  const direc = props.director
+
   return (
     <li className={classes.item}>
       <Card>
@@ -33,7 +36,12 @@ function MovieItem(props) {
           <img src={props.image} alt={props.title} />
         </div>
         <div className={classes.content}>
-          <h4>Directed By: {props.director}</h4>
+          <h4>
+            Directed By:
+            <li>
+              <Link to={direc}>{props.director}</Link>
+            </li>
+          </h4>
           <h5>Short description: {props.description}</h5>
         </div>
         <div className={classes.actions}>

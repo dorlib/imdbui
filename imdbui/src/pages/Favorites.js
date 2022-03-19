@@ -9,14 +9,15 @@ function FavoritesPage() {
   let content;
 
   if (favoritesCtx.totalFavorites === 0) {
-    content = <p>You got no favorites yet. Start adding some?</p>;
+    content = <p 
+    style={{color: "yellow"}}>You got no favorites yet. Start adding some?</p>;
   } else {
     content = <MovieList movies={favoritesCtx.favorites} />;
   }
 
   return (
     <section>
-      <h1>My Favorites</h1>
+      <h1 style={{color: "yellow"}}>My Favorites</h1>
       {content}
     </section>
   );

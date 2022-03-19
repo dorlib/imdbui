@@ -41,7 +41,7 @@ function AllMoviesPage() {
   }
   return (
     <section>
-      <h1>All Movies</h1>
+      <h1 style={{color: "yellow"}}>All Movies</h1>
       <MovieList movies={loadedMovies} />
     </section>
   );

@@ -3,6 +3,16 @@ import { useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./NewMovieForm.module.css";
 
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+
+import Stack from "@mui/material/Stack";
+
+const Input = styled("input")({
+  display: "none",
+});
+
 function NewMovieForm(props) {
   const titleInputRef = useRef();
   const imageInputRef = useRef();
@@ -36,23 +46,36 @@ function NewMovieForm(props) {
       genre: enteredGenre,
     };
 
-
     props.onAddMovie(movieData);
   }
 
   return (
     <Card>
       <form className={classes.form} onSubmit={submitHandler}>
-
         <div className={classes.control}>
           <label htmlFor="title">Movie Title</label>
           <input type="text" required id="title" ref={titleInputRef} />
         </div>
 
-        <div className={classes.control}>
+        <div className={classes.im}>
           <label htmlFor="image">Movie Image</label>
           <input type="url" id="image" ref={imageInputRef} />
         </div>
+
+        <Stack direction="row" alignItems="center" spacing={2} className={classes.but}>
+          <label htmlFor="contained-button-file">
+            <Input
+              accept="image/*"
+              multiple
+              type="file"
+              id="contained-button-file"
+              ref={imageInputRef}
+            />
+            <Button variant="contained" component="span">
+              Upload
+            </Button>
+          </label>
+        </Stack>
 
         <div className={classes.control}>
           <label htmlFor="director">Director's Name</label>
@@ -63,17 +86,11 @@ function NewMovieForm(props) {
           <label htmlFor="worth">
             How Much Do You Think This Movie Is worth Waching?
           </label>
-          <input
-            type="range"
-            id="worth"
-            min="1"
-            max="5"
-            ref={worthInputRef}
-          />
+          <input type="range" id="worth" min="1" max="5" ref={worthInputRef} />
         </div>
 
         <div className={classes.control}>
-        <label htmlFor="genre">What is the genre of this movie?</label>
+          <label htmlFor="genre">What is the genre of this movie?</label>
           <select name="genre" id="genre" ref={genreInputRef}>
             <option value="action">Action</option>
             <option value="drama">Drama</option>
@@ -120,7 +137,6 @@ function NewMovieForm(props) {
         <div className={classes.actions}>
           <button>Add Movie</button>
         </div>
-
       </form>
     </Card>
   );

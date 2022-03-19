@@ -22,7 +22,7 @@ function NewUserPage() {
 
   return (
     <section>
-      <h1>Create New User</h1>
+      <h1 style={{color: "yellow"}}>Create New User</h1>
       <NewUserForm onAddUser={AddUserHandler} />
     </section>
   );

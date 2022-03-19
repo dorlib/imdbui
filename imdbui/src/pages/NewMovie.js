@@ -22,7 +22,7 @@ function NewMoviePage() {
 
   return (
     <section>
-      <h1>Add New Movie</h1>
+      <h1 style={{color: "yellow"}}>Add New Movie</h1>
       <NewMovieForm onAddMovie={AddMovieHandler} />
     </section>
   );

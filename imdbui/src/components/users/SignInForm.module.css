@@ -1,5 +1,6 @@
 .form {
     padding: 1rem;
+    margin-top: 6%;
   }
   
   .control {
@@ -10,8 +11,8 @@
   .tr label,
   .control label {
     display: block;
+    color:yellow;
     font-weight: bold;
-    color: yellow;
     margin-bottom: 0.5rem;
   }
   
