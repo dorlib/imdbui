@@ -19,6 +19,8 @@ const grid = {
   xl: 12,
 };
 
+classes.sign = undefined;
+
 function MainNavigation() {
   const favoritesCtx = useContext(FavoritesContext);
 
